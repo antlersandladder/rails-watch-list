@@ -1,0 +1,21 @@
+<h1>My Lists</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>My Lists </h1>
+    <%= link_to 'Add a list', new_list_path, class: "btn btn-primary" %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @lists.each do |list| %>
+      <div class="col-md-4">
+        <%= link_to list.name, list %>
+        <%= link_to 'Delete', list, data: {
+          turbo_method: :delete,
+          turbo_confirm: 'Confirm to delete list?'
+        }, class: "btn btn-danger" %>
+      </div>
+    <% end %>
+  </div>
+</div>
